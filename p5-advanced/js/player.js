@@ -1,5 +1,6 @@
 class Player {
 	constructor() {
+		this.velocity = 0;
 		this.gravity = 0.2;
 		this.width = 100;
 		this.height = 140;
@@ -11,7 +12,8 @@ class Player {
 	draw() {
 		// console.log('drawing the player');
 		// this pushes the player down
-		this.y += this.gravity;
+		this.velocity += this.gravity;
+		this.y += this.velocity;
 		// if the player moves out of the screen on the bottom
 		if (this.y >= height - this.height) {
 			// we reset the y to it's starting position
@@ -22,6 +24,6 @@ class Player {
 
 	jump() {
 		// console.log('jumping');
-		this.y -= 10;
+		this.velocity = - 10;
 	}
 }
